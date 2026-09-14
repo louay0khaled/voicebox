@@ -5,34 +5,28 @@ import { queryClient } from '@/lib/queryClient';
 interface ServerStore {
   serverUrl: string;
   setServerUrl: (url: string) => void;
-
   isConnected: boolean;
   setIsConnected: (connected: boolean) => void;
-
   mode: 'local' | 'remote';
   setMode: (mode: 'local' | 'remote') => void;
-
   keepServerRunningOnClose: boolean;
   setKeepServerRunningOnClose: (keepRunning: boolean) => void;
-
   customModelsDir: string | null;
   setCustomModelsDir: (dir: string | null) => void;
 }
 
-/**
- * Invalidate all React Query caches so stale data from the previous
- * server is not shown. Called when the server URL changes.
- */
 function invalidateAllServerData() {
   queryClient.invalidateQueries();
 }
 
+const isMobileClient = import.meta.env.VITE_MOBILE_CLIENT === 'true';
+
 export function getDefaultServerUrl(): string {
   const fallback = 'http://127.0.0.1:17493';
-
-  if (!import.meta.env.PROD || typeof window === 'undefined') {
-    return fallback;
-  }
+  // Android is a client for a remote Voicebox backend. Never infer the API
+  // endpoint from the WebView origin, or HTML will be parsed as JSON.
+  if (isMobileClient) return '';
+  if (!import.meta.env.PROD || typeof window === 'undefined') return fallback;
 
   const { protocol, origin, hostname } = window.location;
   if (
@@ -42,7 +36,6 @@ export function getDefaultServerUrl(): string {
   ) {
     return origin;
   }
-
   return fallback;
 }
 
@@ -66,27 +59,22 @@ export const useServerStore = create<ServerStore>()(
     (set, get) => ({
       serverUrl: getDefaultServerUrl(),
       setServerUrl: (url) => {
+        const normalized = url.trim().replace(/\/$/, '');
         const prev = get().serverUrl;
-        set({ serverUrl: url });
-        if (url !== prev) {
-          invalidateAllServerData();
-        }
+        set({ serverUrl: normalized });
+        if (normalized !== prev) invalidateAllServerData();
       },
-
       isConnected: false,
       setIsConnected: (connected) => set({ isConnected: connected }),
-
-      mode: 'local',
+      mode: isMobileClient ? 'remote' : 'local',
       setMode: (mode) => set({ mode }),
-
       keepServerRunningOnClose: false,
       setKeepServerRunningOnClose: (keepRunning) => set({ keepServerRunningOnClose: keepRunning }),
-
       customModelsDir: null,
       setCustomModelsDir: (dir) => set({ customModelsDir: dir }),
     }),
     {
-      name: 'voicebox-server',
+      name: isMobileClient ? 'voicebox-server-mobile-v2' : 'voicebox-server',
     },
   ),
 );
