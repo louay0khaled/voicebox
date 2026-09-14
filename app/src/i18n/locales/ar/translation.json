@@ -1,0 +1,88 @@
+{
+  "common": {
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "loading": "جارٍ التحميل…",
+    "error": "خطأ",
+    "unknown": "غير معروف",
+    "unknownError": "خطأ غير معروف"
+  },
+  "nav": {
+    "generate": "إنشاء صوت",
+    "stories": "القصص",
+    "captures": "التسجيلات",
+    "voices": "الأصوات",
+    "effects": "التأثيرات",
+    "audio": "الصوت",
+    "models": "النماذج",
+    "settings": "الإعدادات",
+    "updateBadge": "تحديث"
+  },
+  "captures": {
+    "title": "التسجيلات",
+    "beta": "تجريبي",
+    "searchPlaceholder": "ابحث في النصوص…",
+    "snippetEmpty": "(لا يوجد نص)",
+    "noTranscriptError": "لا يحتوي التسجيل على نص بعد",
+    "captureCardLabel": "تسجيل · {{when}}",
+    "source": { "dictation": "إملاء", "recording": "تسجيل", "file": "ملف" },
+    "transcript": { "refined": "منقّح", "raw": "خام", "refinedHint": "منقّح باستخدام Qwen3 · {{model}}", "rawHint": "مفرّغ باستخدام Whisper {{model}}" },
+    "actions": {
+      "configure": "تهيئة", "import": "استيراد", "importing": "جارٍ الرفع…", "dictate": "إملاء", "stop": "إيقاف", "copy": "نسخ", "refine": "تنقيح", "reRefine": "إعادة التنقيح", "export": "تصدير", "exportDropdownLabel": "تصدير التسجيل كـ", "exportAudio": "صوت (WAV)", "exportTranscript": "نص (TXT)", "exportMarkdown": "Markdown (MD)", "delete": "حذف", "playAs": "تشغيل بصوت {{name}}", "playAsFallback": "تشغيل بصوت…", "playAsGenerating": "جارٍ الإنشاء…", "playAsStop": "إيقاف · {{name}}", "playAsStopFallback": "إيقاف · الصوت", "playAsDropdownLabel": "تشغيل النص بصوت"
+    },
+    "empty": { "noMatches": "لا توجد تسجيلات تطابق \"{{query}}\"", "none": "لا توجد تسجيلات بعد.", "loading": "جارٍ تحميل التسجيلات…", "pickOne": "اختر تسجيلًا لعرض النص.", "holdToRecord": "اضغط مطولًا للتسجيل", "toggleHandsFree": "تبديل الوضع الحر", "pressShortcut": "اضغط الاختصار في أي مكان لبدء أول تسجيل.", "turnOnShortcut": "فعّل الاختصار العام للإملاء من أي مكان، أو اضغط إملاء أعلاه للتسجيل داخل التطبيق.", "openSettings": "فتح إعدادات التسجيلات" },
+    "deleteDialog": { "title": "حذف التسجيل", "description": "سيؤدي ذلك إلى حذف التسجيل وصوته ونصه نهائيًا. لا يمكن التراجع عن هذا الإجراء.", "deleting": "جارٍ الحذف…" },
+    "toast": { "deleteFailed": "فشل الحذف", "playAsFailed": "فشل التشغيل بالصوت", "noVoice": "لا يوجد ملف صوتي", "noVoiceDescription": "أنشئ ملفًا صوتيًا قبل استخدام التشغيل بالصوت.", "transcriptCopied": "تم نسخ النص", "copyFailed": "فشل النسخ", "exportSuccess": "تم التصدير إلى {{path}}", "exportFailed": "فشل التصدير", "exportEmpty": "لا يوجد شيء لتصديره" },
+    "pill": { "recording": "جارٍ التسجيل", "transcribing": "جارٍ التفريغ", "refining": "جارٍ التنقيح", "speaking": "جارٍ النطق", "completed": "تم", "stopAria": "إيقاف التسجيل", "errorFallback": "حدث خطأ ما", "errorCopyTooltip": "اضغط لنسخ الخطأ" }
+  },
+  "voicesTab": {
+    "title": "الأصوات",
+    "loading": "جارٍ تحميل الأصوات…",
+    "searchPlaceholder": "البحث في الأصوات…",
+    "newVoice": "صوت جديد",
+    "avatarAlt": "الصورة الرمزية لـ {{name}}",
+    "selectChannels": "اختر القنوات…",
+    "channelDefaultLabel": "{{name}} (افتراضي)",
+    "columns": { "name": "الاسم", "language": "اللغة", "generations": "الإنشاءات", "samples": "العينات", "effects": "التأثيرات", "channels": "القنوات" }
+  },
+  "voiceInspector": { "loading": "جارٍ التحميل…", "defaultEffectsHint": "تُطبَّق تلقائيًا على عمليات الإنشاء الجديدة بهذا الصوت.", "fields": { "description": "الوصف" }, "toast": { "invalidImageFormat": "اختر PNG أو JPG أو WebP", "avatarUpdated": "تم تحديث الصورة", "savedDescription": "تم حفظ \"{{name}}\"." } },
+  "audioChannels": {
+    "title": "قنوات الصوت", "newChannel": "قناة جديدة", "loading": "جارٍ التحميل…", "confirmDelete": "حذف هذه القناة؟", "noVoicesAssigned": "لا توجد أصوات مخصصة", "selectDevice": "اختر جهازًا", "addDevice": "إضافة جهاز", "addVoice": "إضافة صوت", "defaultSuffix": "افتراضي",
+    "empty": { "message": "لا توجد قنوات صوت بعد. أنشئ أول قناة لتوجيه الأصوات إلى أجهزة محددة.", "action": "إنشاء قناة" },
+    "labels": { "outputDevices": "أجهزة الإخراج", "assignedVoices": "الأصوات المخصصة" },
+    "devices": { "title": "الأجهزة المتاحة", "defaultNote": "تستخدم القناة الافتراضية جهاز النظام الافتراضي", "toggleHint": "اضغط على الأجهزة لإضافتها أو إزالتها من القناة المحددة", "selectHint": "اختر قناة لتخصيص الأجهزة", "empty": "لم يتم العثور على أجهزة صوت", "requiresTauri": "اختيار أجهزة الصوت يتطلب Tauri" },
+    "fields": { "name": "اسم القناة", "namePlaceholder": "مثال: كابل افتراضي، بث" },
+    "createDialog": { "title": "إنشاء قناة صوت", "description": "أنشئ قناة صوت جديدة لتوجيه الأصوات إلى أجهزة إخراج محددة.", "action": "إنشاء" },
+    "editDialog": { "title": "تعديل القناة", "description": "حدّث إعدادات القناة وتخصيصات الأصوات." }
+  },
+  "profileForm": {
+    "createTitle": "إنشاء صوت", "editTitle": "تعديل الصوت", "createDescription": "أنشئ ملفًا صوتيًا جديدًا من عينة صوتية أو صوت مدمج.", "editDescription": "حدّث تفاصيل الصوت وأدر العينات.", "draftRestored": "تم استعادة المسودة", "discard": "تجاهل",
+    "source": { "clone": "استنساخ من صوت", "builtin": "صوت مدمج" },
+    "builtin": { "hint": "اختر صوتًا جاهزًا. لا تحتاج هذه الأصوات إلى عينة صوتية.", "badge": "صوت مدمج", "note": "يستخدم هذا الملف صوتًا مدمجًا ولا يمكن تغييره بعد الإنشاء." },
+    "sampleTabs": { "upload": "رفع", "record": "تسجيل", "system": "صوت النظام" },
+    "fields": { "engine": "المحرك", "voice": "الصوت", "name": "الاسم", "namePlaceholder": "صوتي", "descriptionLabel": "الوصف (اختياري)", "descriptionPlaceholder": "صف هذا الصوت…", "language": "اللغة", "referenceText": "النص المرجعي", "referenceTextPlaceholder": "أدخل النص المنطوق حرفيًا في الصوت…", "defaultEngine": "المحرك الافتراضي", "noPreference": "بدون تفضيل", "defaultEngineHint": "يحدد هذا المحرك تلقائيًا عند اختيار الملف.", "defaultEffects": "التأثيرات الافتراضية", "defaultEffectsHint": "تُطبّق التأثيرات تلقائيًا على كل عمليات الإنشاء الجديدة بهذا الصوت.", "personalityLabel": "الشخصية", "personalityPlaceholder": "مثال: قرصان غاضب لا يتحدث إلا باستعارات بحرية", "personalityHint": "من هو هذا الصوت وكيف يتحدث. يتحكم في زر الإنشاء وإعادة الصياغة بأسلوب الشخصية." },
+    "avatar": { "alt": "معاينة الصورة" },
+    "actions": { "saving": "جارٍ الحفظ…", "saveChanges": "حفظ التغييرات", "createProfile": "إنشاء ملف صوتي" },
+    "validation": { "nameRequired": "الاسم مطلوب", "referenceRequired": "النص المرجعي مطلوب عند إضافة عينة", "sampleRequired": "العينة الصوتية مطلوبة", "referenceTextRequired": "النص المرجعي مطلوب", "audioTooLong": "الصوت طويل جدًا ({{duration}}). الحد الأقصى {{max}}.", "audioFailed": "تعذر التحقق من الملف الصوتي. جرّب ملفًا آخر." },
+    "toast": { "recordingComplete": "اكتمل التسجيل", "recordingCompleteDescription": "تم تسجيل الصوت بنجاح.", "recordingError": "خطأ في التسجيل", "systemAudioCaptured": "تم التقاط صوت النظام", "systemAudioCapturedDescription": "تم التقاط الصوت بنجاح.", "systemAudioError": "خطأ في التقاط صوت النظام", "transcribeFailed": "فشل التفريغ", "transcribeFailedFallback": "تعذر تفريغ الصوت", "noFile": "لم يتم اختيار ملف", "noFileDescription": "اختر ملفًا صوتيًا أولًا.", "invalidFile": "نوع ملف غير صالح", "invalidImageFormat": "اختر صورة PNG أو JPG أو WebP", "fileTooLarge": "الملف كبير جدًا", "imageTooLargeDescription": "يجب أن تكون الصورة أقل من 5 ميغابايت", "avatarRemoved": "تمت إزالة الصورة", "avatarRemovedDescription": "تمت إزالة الصورة بنجاح.", "avatarRemoveFailed": "فشل إزالة الصورة", "avatarUploadFailed": "فشل رفع الصورة", "avatarUploadFailedFallback": "تعذر رفع الصورة", "voiceUpdated": "تم تحديث الصوت", "voiceUpdatedDescription": "تم تحديث \"{{name}}\" بنجاح.", "noVoiceSelected": "لم يتم اختيار صوت", "noVoiceSelectedDescription": "اختر صوتًا مدمجًا.", "profileCreated": "تم إنشاء الملف الصوتي", "profileCreatedBuiltin": "تم إنشاء \"{{name}}\" بصوت مدمج.", "profileCreatedSample": "تم إنشاء \"{{name}}\" بالعينة.", "sampleRequiredDescription": "أضف عينة صوتية لإنشاء الملف.", "referenceTextRequiredDescription": "أضف النص المرجعي للعينة.", "invalidAudio": "ملف صوتي غير صالح", "validationError": "خطأ في التحقق", "rollbackFailed": "فشل التراجع", "profileRolledBack": "تم التراجع عن إنشاء الملف.", "sampleFailed": "فشل إضافة العينة", "saveFailed": "فشل حفظ الملف الصوتي" }
+  },
+  "audioSample": {
+    "chooseFile": "اختيار ملف", "uploadHint": "اضغط لاختيار ملف أو اسحبه وأفلته. الحد الأقصى 30 ثانية.", "fileUploaded": "تم رفع الملف", "fileLabel": "الملف: {{name}}", "play": "تشغيل", "pause": "إيقاف مؤقت", "transcribe": "تفريغ", "transcribing": "جارٍ التفريغ…", "remove": "إزالة", "startRecording": "بدء التسجيل", "recordHint": "اضغط لبدء التسجيل. الحد الأقصى 30 ثانية.", "stopRecording": "إيقاف التسجيل", "remaining": "متبقي {{time}}"
+  },
+  "mobileConnection": {
+    "title": "الاتصال بخادم Voicebox",
+    "description": "تطبيق أندرويد هو واجهة للتحكم بخادم Voicebox يعمل على جهاز آخر. أدخل عنوان الخادم ثم اختبر الاتصال.",
+    "serverUrl": "عنوان الخادم",
+    "placeholder": "http://192.168.1.100:17493",
+    "connect": "اتصال واختبار",
+    "connecting": "جارٍ اختبار الاتصال…",
+    "connected": "تم الاتصال بخادم Voicebox",
+    "invalidUrl": "أدخل عنوانًا صحيحًا مثل http://192.168.1.100:17493",
+    "failed": "تعذر الاتصال بالخادم. تأكد من تشغيل Voicebox ومن صحة العنوان، ومن السماح بالاتصال من الهاتف.",
+    "hint": "إذا كان Voicebox على الكمبيوتر نفسه، استخدم عنوان IP المحلي للكمبيوتر، وليس 127.0.0.1."
+  }
+}
