@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
+import ar from './locales/ar/translation.json';
 import en from './locales/en/translation.json';
 import es from './locales/es/translation.json';
 import fr from './locales/fr/translation.json';
@@ -12,6 +13,7 @@ import zhCN from './locales/zh-CN/translation.json';
 import zhTW from './locales/zh-TW/translation.json';
 
 export const SUPPORTED_LANGUAGES = [
+  { code: 'ar', label: 'العربية' },
   { code: 'en', label: 'English' },
   { code: 'es', label: 'Español' },
   { code: 'pt-BR', label: 'Português (Brasil)' },
@@ -30,6 +32,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
+      ar: { translation: ar },
       en: { translation: en },
       es: { translation: es },
       'pt-BR': { translation: ptBR },
@@ -40,13 +43,14 @@ i18n
       fr: { translation: fr },
       it: { translation: it },
     },
+    lng: 'ar',
     fallbackLng: 'en',
     supportedLngs: SUPPORTED_LANGUAGES.map((l) => l.code),
     load: 'currentOnly',
     interpolation: { escapeValue: false },
     react: { useSuspense: false },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       lookupLocalStorage: 'voicebox:lang',
       caches: ['localStorage'],
     },
