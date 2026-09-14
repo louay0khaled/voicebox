@@ -43,6 +43,8 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Build web client
+        env:
+          VITE_MOBILE_CLIENT: 'true'
         run: bun run build:web
 
       - name: Install Capacitor dependencies
