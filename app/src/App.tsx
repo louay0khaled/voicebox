@@ -99,9 +99,7 @@ function MobileConnectionGate() {
     setServerUrl(url);
     try {
       const health = await apiClient.getHealth();
-      if (!isVoiceboxHealthResponse(health)) {
-        throw new Error('invalid_voicebox_server');
-      }
+      if (!isVoiceboxHealthResponse(health)) throw new Error('invalid_voicebox_server');
       setIsConnected(true);
     } catch {
       setIsConnected(false);
@@ -157,6 +155,7 @@ function MobileConnectionGate() {
 
 function MainApp() {
   const platform = usePlatform();
+  const { i18n } = useTranslation();
   const [serverReady, setServerReady] = useState(false);
   const [startupError, setStartupError] = useState<string | null>(null);
   const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
@@ -166,6 +165,13 @@ function MainApp() {
 
   useAutoUpdater({ checkOnMount: true, showToast: true });
   useChordSync();
+
+  useEffect(() => {
+    const isArabic = i18n.language.startsWith('ar');
+    document.documentElement.lang = isArabic ? 'ar' : i18n.language;
+    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+    document.body.dir = isArabic ? 'rtl' : 'ltr';
+  }, [i18n, i18n.language]);
 
   useEffect(() => {
     if (platform.metadata.isTauri) {
@@ -277,9 +283,7 @@ function MainApp() {
 
   if (platform.metadata.isTauri && !serverReady) {
     return (
-      <div
-        className={cn('min-h-screen bg-background flex items-center justify-center', TOP_SAFE_AREA_PADDING)}
-      >
+      <div className={cn('min-h-screen bg-background flex items-center justify-center', TOP_SAFE_AREA_PADDING)}>
         <TitleBarDragRegion />
         <div className="text-center space-y-6">
           <div className="flex justify-center relative">
@@ -292,22 +296,12 @@ function MainApp() {
             <div className="animate-fade-in-delayed max-w-md mx-auto space-y-3">
               <p className="text-lg font-medium text-destructive">Server startup failed</p>
               <p className="text-sm text-muted-foreground">{startupError}</p>
-              <button
-                type="button"
-                className="mt-2 px-4 py-2 text-sm rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                onClick={() => window.location.reload()}
-              >
+              <button type="button" className="mt-2 px-4 py-2 text-sm rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors" onClick={() => window.location.reload()}>
                 Retry
               </button>
             </div>
           ) : (
-            <ShinyText
-              text={LOADING_MESSAGES[loadingMessageIndex]}
-              className="text-lg font-medium text-muted-foreground"
-              speed={2}
-              color="hsl(var(--muted-foreground))"
-              shineColor="hsl(var(--foreground))"
-            />
+            <ShinyText text={LOADING_MESSAGES[loadingMessageIndex]} className="text-lg font-medium text-muted-foreground" speed={2} color="hsl(var(--muted-foreground))" shineColor="hsl(var(--foreground))" />
           )}
         </div>
       </div>
