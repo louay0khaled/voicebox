@@ -23,8 +23,6 @@ const isMobileClient = import.meta.env.VITE_MOBILE_CLIENT === 'true';
 
 export function getDefaultServerUrl(): string {
   const fallback = 'http://127.0.0.1:17493';
-  // Android is a client for a remote Voicebox backend. Never infer the API
-  // endpoint from the WebView origin, or HTML will be parsed as JSON.
   if (isMobileClient) return '';
   if (!import.meta.env.PROD || typeof window === 'undefined') return fallback;
 
@@ -61,7 +59,7 @@ export const useServerStore = create<ServerStore>()(
       setServerUrl: (url) => {
         const normalized = url.trim().replace(/\/$/, '');
         const prev = get().serverUrl;
-        set({ serverUrl: normalized });
+        set({ serverUrl: normalized, isConnected: false });
         if (normalized !== prev) invalidateAllServerData();
       },
       isConnected: false,
@@ -75,6 +73,7 @@ export const useServerStore = create<ServerStore>()(
     }),
     {
       name: isMobileClient ? 'voicebox-server-mobile-v2' : 'voicebox-server',
+      partialize: (state) => ({ ...state, isConnected: false }),
     },
   ),
 );
